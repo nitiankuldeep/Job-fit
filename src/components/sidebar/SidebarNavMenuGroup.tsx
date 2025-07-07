@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import {   SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarMenuItem  } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { SignedIn, SignedOut } from "@/services/clerk/components/SignedInStatus";
+import { SignedIn, SignedOut } from "@/services/clerk/components/SignInStatus";
 import { usePathname } from "next/navigation";
 
 export function SidebarNavMenuGroup({items,className}:{items:{

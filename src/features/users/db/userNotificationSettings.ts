@@ -13,19 +13,19 @@ export async function insertUserNotificationSettings(
   revalidateUserNotificationSettingsCache(settings.userId)
 }
 
-// export async function updateUserNotificationSettings(
-//   userId: string,
-//   settings: Partial<
-//     Omit<typeof UserNotificationSettingsTable.$inferInsert, "userId">
-//   >
-// ) {
-//   await db
-//     .insert(UserNotificationSettingsTable)
-//     .values({ ...settings, userId })
-//     .onConflictDoUpdate({
-//       target: UserNotificationSettingsTable.userId,
-//       set: settings,
-//     })
+export async function updateUserNotificationSettings(
+  userId: string,
+  settings: Partial<
+    Omit<typeof UserNotificationSettingsTable.$inferInsert, "userId">
+  >
+) {
+  await db
+    .insert(UserNotificationSettingsTable)
+    .values({ ...settings, userId })
+    .onConflictDoUpdate({
+      target: UserNotificationSettingsTable.userId,
+      set: settings,
+    })
 
-//  // revalidateUserNotificationSettingsCache(userId)
-// }
+ // revalidateUserNotificationSettingsCache(userId)
+}

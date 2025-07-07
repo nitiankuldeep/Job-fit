@@ -26,7 +26,7 @@ export const jobListingStatuses=["draft","published","delisted"] as const
 export type jobListingStatus =typeof jobListingStatuses[number]
 export const jobListingStatusEnum= pgEnum("job_listing_status",jobListingStatuses)
 
-export const jobListingTypes=["intership","part-time","full-time"] as const
+export const jobListingTypes=["internship","part-time","full-time"] as const
 export type jobListingStatuse =typeof jobListingTypes[number]
 export const jobListingTypeEnum= pgEnum("job_listing_type",jobListingTypes)
 
