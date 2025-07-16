@@ -47,7 +47,7 @@ const NONE_SELECT_VALUE = "none"
 export function JobListingForm({
   jobListing,
 }: {
-  jobListing: Pick<
+  jobListing?: Pick<
     typeof JobListingTable.$inferSelect,
     | "title"
     | "description"
@@ -136,7 +136,7 @@ export function JobListingForm({
                       <FormItem>
                         <Select
                           value={field.value ?? ""}
-                          onValueChange={(val: string) => field.onChange(val ?? null)}
+                          onValueChange={val => field.onChange(val ?? null)}
                         >
                           <FormControl>
                             <SelectTrigger className="rounded-l-none">
@@ -184,7 +184,7 @@ export function JobListingForm({
                   <FormLabel>State</FormLabel>
                   <Select
                     value={field.value ?? ""}
-                    onValueChange={(val: string) =>
+                    onValueChange={val =>
                       field.onChange(val === NONE_SELECT_VALUE ? null : val)
                     }
                   >

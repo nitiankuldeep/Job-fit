@@ -8,11 +8,11 @@ import {
   deleteOrganization,
   insertOrganization,
   updateOrganization,
-} from "@/features/organizations/db/organizations"
+} from "@/features/organization/db/organizations"
 import {
   deleteOrganizationUserSettings,
   insertOrganizationUserSettings,
-} from "@/features/organizations/db/organizationUserSettings"
+} from "../../../features/organization/db/organizationUserSettings"
 
 function verifyWebhook({
   raw,
@@ -49,13 +49,16 @@ export const clerkCreateUser = inngest.createFunction(
       }
 
       await insertUser({
-        id: userData.id,
-        name: `${userData.first_name} ${userData.last_name}`,
-        imageUrl: userData.image_url,
-        email: email.email_address,
-        createdAt: new Date(userData.created_at),
-        updatedAt: new Date(userData.updated_at),
-      })
+  id: userData.id,
+  name: (userData.first_name || userData.last_name)
+    ? `${userData.first_name ?? ""} ${userData.last_name ?? ""}`.trim()
+    : email.email_address?.split("@")[0] ?? "Unnamed User",
+  imageUrl: userData.image_url,
+  email: email.email_address,
+  createdAt: new Date(userData.created_at),
+  updatedAt: new Date(userData.updated_at),
+});
+
 
       return userData.id
     })

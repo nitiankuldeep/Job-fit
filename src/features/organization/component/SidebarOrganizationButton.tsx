@@ -1,8 +1,6 @@
-
 import { Suspense } from "react";
-
-import { getCurrentOrganization, getCurrentUser } from "@/services/clerk/lib/getCurrentAuth";
-import { SignOutButton } from "@/services/clerk/components/AuthButton";
+import { getCurrentOrganization, getCurrentUser } from "../../../services/clerk/lib/getCurrentAuth";
+import { SignOutButton } from "../../../services/clerk/components/AuthButtons";
 import { SidebarMenuButton } from "@/components/ui/sidebar";
 import { LogOutIcon } from "lucide-react";
 import { SidebarOrganizationButtonClient } from "./_SidebarOrganizationSuspence";

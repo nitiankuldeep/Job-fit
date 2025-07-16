@@ -32,11 +32,11 @@ export async function createJobListing(
   unsafeData: z.infer<typeof jobListingSchema>
 ) {
   const { orgId } = await getCurrentOrganization()
-
+   console.log("ORG ID FROM SERVER ACTION:", orgId)
   if (
     orgId == null ||
-    !(await hasOrgUserPermission("org:job_listings:create"))
-  ) {
+    !(await hasOrgUserPermission("job_listings:create"))
+  ){
     return {
       error: true,
       message: "You don't have permission to create a job listing",
@@ -56,6 +56,7 @@ export async function createJobListing(
     organizationId: orgId,
     status: "draft",
   })
+  console.log( jobListing.id + " "+ jobListing.organizationId);
 
   redirect(`/employer/job-listings/${jobListing.id}`)
 }
@@ -68,7 +69,7 @@ export async function updateJobListing(
 
   if (
     orgId == null ||
-    !(await hasOrgUserPermission("org:job_listings:update"))
+    !(await hasOrgUserPermission("job_listings:update"))
   ) {
     return {
       error: true,
@@ -110,7 +111,7 @@ export async function toggleJobListingStatus(id: string) {
 
   const newStatus = getNextJobListingStatus(jobListing.status)
   if (
-    !(await hasOrgUserPermission("org:job_listings:change_status")) ||
+    !(await hasOrgUserPermission("job_listings:change_status")) ||
     (newStatus === "published" && (await hasReachedMaxPublishedJobListings()))
   ) {
     return error
@@ -142,7 +143,7 @@ export async function toggleJobListingFeatured(id: string) {
 
   const newFeaturedStatus = !jobListing.isfeatured
   if (
-    !(await hasOrgUserPermission("org:job_listings:change_status")) ||
+    !(await hasOrgUserPermission("job_listings:change_status")) ||
     (newFeaturedStatus && (await hasReachedMaxFeaturedJobListings()))
   ) {
     return error
@@ -166,7 +167,7 @@ export async function deleteJobListing(id: string) {
   const jobListing = await getJobListing(id, orgId)
   if (jobListing == null) return error
 
-  if (!(await hasOrgUserPermission("org:job_listings:delete"))) {
+  if (!(await hasOrgUserPermission("job_listings:delete"))) {
     return error
   }
 
