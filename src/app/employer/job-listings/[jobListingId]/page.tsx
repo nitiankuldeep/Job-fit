@@ -19,7 +19,7 @@ import {
 import {
   ApplicationTable,
   SkeletonApplicationTable,
-} from "../../../../features/jobListingApplications/components/ApplicationsTable"
+} from "@/features/jobListingApplications/components/ApplicationsTable"
 import { getJobListingApplicationJobListingTag } from "@/features/jobListingApplications/db/cache/jobListingApplications"
 import {
   deleteJobListing,
@@ -32,7 +32,7 @@ import { formatJobListingStatus } from "@/features/jobListings/lib/formatters"
 import {
   hasReachedMaxFeaturedJobListings,
   hasReachedMaxPublishedJobListings,
-} from "../../../..//features/jobListings/lib/planFeatureHelpers"
+} from "@/features/jobListings/lib/planFeatureHelpers"
 import { getNextJobListingStatus } from "@/features/jobListings/lib/utils"
 import { getUserResumeIdTag } from "@/features/users/db/cache/userResumes"
 import { getUserIdTag } from "@/features/users/db/cache/users"
