@@ -15,6 +15,8 @@ import { ReactNode, useOptimistic, useState, useTransition } from "react"
 import { sortApplicationsByStage } from "../lib/utils"
 import { StageIcon } from "./StageIcons"
 import { formatJobListingApplicationStage } from "../lib/formatters"
+
+import { FormattedDate } from "@/components/FormatedDate"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -130,7 +132,7 @@ function getColumns(
       header: ({ column }) => (
         <DataTableSortableColumnHeader title="Applied On" column={column} />
       ),
-      cell: ({ row }) => row.original.createdAt.toLocaleDateString(),
+      cell: ({ row }) => <FormattedDate date={row.original.createdAt}/>,
     },
     {
       id: "actions",

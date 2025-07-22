@@ -52,7 +52,7 @@ export async function getMatchingJobListings(
     )}`,
     model: gemini({
       model: "gemini-2.0-flash",
-      apiKey: env.GEMINI_API_KEY,
+      apiKey: env.GOOGLE_API_KEY,
     }),
   })
 

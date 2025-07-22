@@ -1,5 +1,5 @@
 import { env } from "@/data/env/server"
-import { updateJobListingApplication } from "@/features/jobListingApplications/db/jobListingsApplications"
+import { updateJobListingApplication } from "@/features/jobListingApplications/db/jobListingApplications"
 import { createAgent, createTool, gemini } from "@inngest/agent-kit"
 import { z } from "zod"
 
@@ -28,6 +28,6 @@ export const applicantRankingAgent = createAgent({
   tools: [saveApplicantRatingTool],
   model: gemini({
     model: "gemini-2.0-flash",
-    apiKey: env.GEMINI_API_KEY,
+    apiKey: env.GOOGLE_API_KEY  ,
   }),
 })

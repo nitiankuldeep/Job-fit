@@ -4,7 +4,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 import { JobListingItems } from "../../_shared/JobListingItems"
-import { IsBreakpoint } from "@/components/IsBreakpoint"
+import { IsBreakpoint } from "../../../../components/IsBreakpoint"
 import { Suspense } from "react"
 import { LoadingSpinner } from "@/components/LoadingSpinner"
 import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
@@ -18,7 +18,7 @@ import {
   UserResumeTable,
 } from "@/drizzle/schema"
 import { db } from "@/drizzle/db"
-import { getOrganizationIdTag } from "@/features/organizations/db/cache/organizations"
+import { getOrganizationIdTag } from "@/features/organization/db/cache/organizations"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -242,7 +242,7 @@ async function ApplyButton({ jobListingId }: { jobListingId: string }) {
         </div>
       </DialogContent>
     </Dialog>
-  )
+  )  
 }
 
 async function getUserResume(userId: string) {

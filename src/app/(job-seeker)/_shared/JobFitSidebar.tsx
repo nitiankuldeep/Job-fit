@@ -1,7 +1,7 @@
 import { SidebarGroup, SidebarGroupContent } from "@/components/ui/sidebar"
 import { JobListingFilterForm } from "@/features/jobListings/components/JobListingFilterForm"
 
-export function JobBoardSidebar() {
+export function JobFitSidebar() {
   return (
     <SidebarGroup className="group-data-[state=collapsed]:hidden">
       <SidebarGroupContent className="px-1">

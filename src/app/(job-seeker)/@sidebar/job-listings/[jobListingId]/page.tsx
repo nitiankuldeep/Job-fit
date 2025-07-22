@@ -1,5 +1,5 @@
-import { JobBoardSidebar } from "../../../_shared/JobBoardSidebar"
+import { JobFitSidebar } from "../../../_shared/JobFitSidebar"
 
-export default function JobBoardSidebarPage() {
-  return <JobBoardSidebar />
+export default function JobFitSidebarPage() {
+  return <JobFitSidebar />
 }
