@@ -21,8 +21,8 @@ export const prepareDailyUserJobListingNotifications = inngest.createFunction(
     name: "Prepare Daily User Job Listing Notifications",
   },
   {
-    cron: "TZ=America/Chicago 0 7 * * *",
-  },
+    cron: "TZ=Asia/Kolkata 0 7 * * *",
+   },
   async ({ step, event }) => {
     const getUsers = step.run("get-users", async () => {
       return await db.query.UserNotificationSettingsTable.findMany({
@@ -33,7 +33,7 @@ export const prepareDailyUserJobListingNotifications = inngest.createFunction(
           aiPrompt: true,
         },
         with: {
-          user: {
+          user: {  
             columns: {
               email: true,
               name: true,
@@ -129,11 +129,11 @@ export const sendDailyUserJobListingEmail = inngest.createFunction(
 
     await step.run("send-email", async () => {
       await resend.emails.send({
-        from: "Job Fit <onboarding@resend.dev>",
+        from: "Job-Fit<onboarding@resend.dev>",
         to: user.email,
         subject: "Daily Job Listings",
         react: DailyJobListingEmail({
-          jobListings,
+          jobListings:matchingJobListings,
           userName: user.name,
           serverUrl: env.SERVER_URL,
         }),
@@ -148,7 +148,7 @@ export const prepareDailyOrganizationUserApplicationNotifications =
       id: "prepare-daily-organization-user-application-notifications",
       name: "Prepare Daily Organization User Application Notifications",
     },
-    { cron: "TZ=America/Chicago 0 7 * * *" },
+    { cron: "TZ=Asia/Kolkata 0 7 * * *" },
     async ({ step, event }) => {
       const getUsers = step.run("get-user-settings", async () => {
         return await db.query.OrganizationUserSettingsTable.findMany({
@@ -280,7 +280,7 @@ export const sendDailyOrganizationUserApplicationEmail = inngest.createFunction(
 
     await step.run("send-email", async () => {
       await resend.emails.send({
-        from: "Job Fit <onboarding@resend.dev>",
+        from: "JobFit <onboarding@resend.dev>",
         to: user.email,
         subject: "Daily Job Listing Applications",
         react: DailyApplicationEmail({

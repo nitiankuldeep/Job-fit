@@ -4,11 +4,7 @@ import { ComponentPropsWithRef, useTransition } from "react"
 import { Button } from "./ui/button"
 import { toast } from "sonner"
 import { LoadingSwap } from "./LoadingSwap"
-import {
-  AlertDialog,
-  AlertDialogDescription,
-  AlertDialogTitle,
-} from "@radix-ui/react-alert-dialog"
+
 import {
   AlertDialogAction,
   AlertDialogCancel,
@@ -16,6 +12,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTrigger,
+  AlertDialogDescription,
+  AlertDialogTitle,
+  AlertDialog,
 } from "./ui/alert-dialog"
 
 export function ActionButton({

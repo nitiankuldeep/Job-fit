@@ -62,7 +62,7 @@ export const rankApplication = inngest.createFunction(
     if (resumeSummary == null || jobListing == null) return
 
     await applicantRankingAgent.run(
-      JSON.stringify({ coverLetter, resumeSummary, jobListingId, userId })
+      JSON.stringify({ coverLetter, resumeSummary, jobListingId, jobListing, userId })
     )
   }
 )

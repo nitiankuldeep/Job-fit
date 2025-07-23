@@ -12,8 +12,8 @@ export const env = createEnv({
     CLERK_WEBHOOK_SECRET: z.string().min(1),
     UPLOADTHING_TOKEN: z.string().min(1),
     GOOGLE_API_KEY: z.string().min(1),
-    RESEND_API_KEY: z.string().optional(),
-    SERVER_URL: z.string().optional(),
+    RESEND_API_KEY: z.string().min(1),
+    SERVER_URL: z.string().min(1),
   },
   createFinalSchema: env => {
     return z.object(env).transform(val => {
