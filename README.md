@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Job-fit: AI-Powered Job Board
+Job-fit is a modern, full-stack job board application designed to streamline the hiring process for both employers and job seekers. It leverages AI to provide personalized job recommendations and automated notifications, creating a more efficient and intelligent job search experience.
 
-## Getting Started
+✨ Features
+For Job Seekers
+AI Resume Analysis: Upload your resume and get an instant, AI-generated summary that highlights your key skills and qualifications.
 
-First, run the development server:
+Personalized Job Matching: Provide a custom AI prompt (e.g., "Senior frontend developer with experience in Next.js") to receive a daily email digest of jobs that perfectly match your profile.
 
-```bash
+Automated Email Notifications: Never miss an opportunity. Get daily emails with the latest job listings tailored just for you.
+
+Simple Application Process: Easily view detailed job descriptions and apply directly through the platform.
+
+For Employers
+Effortless Job Posting: Create, manage, and publish job listings for your organization with a simple and intuitive interface.
+
+Intelligent Applicant Filtering: Receive daily email summaries of new applications. Set a minimum rating threshold to automatically filter and prioritize the most qualified candidates.
+
+Application Tracking System (ATS): Review applicant details, see their AI-generated resume summary, and manage their progress through your hiring pipeline (e.g., "Screening," "Interview," "Hired").
+
+Candidate Rating: Rate applicants on a 5-star scale to easily organize and identify top talent.
+
+🚀 Tech Stack
+This project is built with a modern, scalable, and type-safe technology stack.
+
+Framework: Next.js (App Router)
+
+Background Jobs & Cron: Inngest
+
+Database: Supabase (PostgreSQL)
+
+ORM: Drizzle ORM
+
+Authentication: Clerk
+
+Email: Resend
+
+AI: Google Gemini
+
+File Uploads: UploadThing
+
+Styling: Tailwind CSS & shadcn/ui
+
+🏁 Getting Started
+Follow these instructions to set up the project locally for development and testing.
+
+1. Clone the Repository
+git clone [https://github.com/nitiankuldeep/Job-fit.git](https://github.com/nitiankuldeep/Job-fit.git)
+cd Job-fit
+
+2. Install Dependencies
+npm install
+
+3. Set Up Environment Variables
+Create a .env.local file in the root of your project and add the following environment variables. You will need to get these keys from their respective service dashboards (Supabase, Clerk, UploadThing, Google AI, Resend).
+
+# Database (from Supabase)
+DB_URL="postgresql://..."
+
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="..."
+CLERK_SECRET_KEY="..."
+CLERK_WEBHOOK_SECRET="..."
+
+# File Uploads
+UPLOADTHING_TOKEN="..."
+
+# Google AI
+GOOGLE_API_KEY="..."
+
+# Resend Email
+RESEND_API_KEY="..."
+
+# Server URL for local development
+SERVER_URL="http://localhost:3000"
+
+4. Push Database Schema
+This command will connect to your Supabase database and create all the necessary tables based on your Drizzle schema files.
+
+npm run db:push
+
+5. Run the Development Servers
+You need to run two separate processes in two different terminals.
+
+Terminal 1: Start the Next.js App
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Terminal 2: Start the Inngest Dev Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm run inngest
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Your application should now be running at http://localhost:3000, and the Inngest Dev Server will be at http://localhost:8288.
 
-## Learn More
+6. Configure Webhooks
+For Clerk events (like new user sign-ups) to work locally, you need to set up a webhook.
 
-To learn more about Next.js, take a look at the following resources:
+Copy the public URL from the terminal where you ran npm run inngest (it will look like https://inn.gs/t/...).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Go to your Clerk dashboard -> Webhooks -> Add Endpoint.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Paste the URL and subscribe to the user.created event.
 
-## Deploy on Vercel
+👤 Contact
+Kuldeep Singh Rathore
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GitHub: @nitiankuldeep
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Email: contact.kuldeepsinghrathore@gmail.com
