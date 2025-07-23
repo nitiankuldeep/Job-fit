@@ -1,4 +1,3 @@
-import { auth } from "@clerk/nextjs/server";
 import { Suspense } from "react";
 import { SidebarUserButtonClient } from "./_SidebarUserSuspence";
 import { getCurrentUser } from "@/services/clerk/lib/getCurrentAuth";

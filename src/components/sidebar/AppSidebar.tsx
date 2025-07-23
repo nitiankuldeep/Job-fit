@@ -1,10 +1,8 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 import { AppSidebarClient } from "./_AppSidebarClient";
-import Link from "next/link";
-
-import { SignedIn, SignIn } from "@clerk/nextjs";
-import { Children, ReactNode } from "react";
+import { SignedIn } from "@clerk/nextjs";
+import { ReactNode } from "react";
 
 export function AppSidebar({content,footerButton,children}:{children:ReactNode,content:ReactNode ,footerButton:ReactNode}){
     return(

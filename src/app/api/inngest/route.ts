@@ -15,6 +15,7 @@ export const {GET,POST,PUT} =serve({
         clerkDeleteUser,
         clerkCreateOrganization,
         clerkDeleteOrgMembership,
+        clerkCreateOrgMembership,
         clerkDeleteOrganization,
         clerkUpdateOrganization,
         createAiSummaryOfUploadedResume,

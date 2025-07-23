@@ -1,4 +1,6 @@
-import { SignIn } from "@clerk/nextjs";
+
+import { Suspense } from "react";
+import SignInForm from "./SignInForm";
 export default function SignInPage(){
-    return <SignIn/>
+    return  <Suspense fallback={<div>Loading...</div>}><SignInForm/></Suspense>
 }

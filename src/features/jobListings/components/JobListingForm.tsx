@@ -25,7 +25,6 @@ import {
   experienceLevels,
   JobListingTable,
   jobListingTypes,
-  locationRequirementEnum,
   locationRequirements,
   wageIntervals,
 } from "@/drizzle/schema"
